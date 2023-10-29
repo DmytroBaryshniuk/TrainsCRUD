@@ -1,6 +1,6 @@
 package com.example.TrainsCRUD.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,12 +10,20 @@ import java.util.Map;
 
 @Entity
 @Data
+@Table
 @Builder
 @AllArgsConstructor
 public class Train {
 
-    public int id;
+    @Id
+    public Long id;
     private String trainOperator;
+    @OneToMany
     public List<Wagon> wagons;
+    @ElementCollection
     public Map<String, String> route;
+
+    public Train() {
+
+    }
 }
