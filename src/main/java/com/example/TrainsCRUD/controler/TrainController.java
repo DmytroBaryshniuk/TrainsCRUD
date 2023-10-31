@@ -4,9 +4,7 @@ package com.example.TrainsCRUD.controler;
 import com.example.TrainsCRUD.entity.Train;
 import com.example.TrainsCRUD.service.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,10 @@ public class TrainController {
     @GetMapping
     public List<Train> getTrains(){
         return trainService.getTrains();
+    }
+
+    @PostMapping("/")
+    public void createNewTrain(@RequestBody Train train){
+        trainService.createNewTrain(train);
     }
 }

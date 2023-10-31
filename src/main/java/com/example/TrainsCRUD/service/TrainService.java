@@ -5,6 +5,7 @@ import com.example.TrainsCRUD.repository.TrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -19,9 +20,11 @@ public class TrainService {
         this.trainRepository = trainRepository;
     }
 
-
-    @GetMapping
     public List<Train> getTrains(){
         return trainRepository.findAll();
+    }
+
+    public void createNewTrain(Train train) {
+        System.out.println(train);
     }
 }

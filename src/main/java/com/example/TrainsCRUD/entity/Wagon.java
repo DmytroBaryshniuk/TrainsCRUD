@@ -6,11 +6,13 @@ import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Wagon {
 
     @Id
@@ -20,9 +22,5 @@ public class Wagon {
     @OneToOne
     private Train train;
 
-
-    public Wagon() {
-
-    }
 
 }
