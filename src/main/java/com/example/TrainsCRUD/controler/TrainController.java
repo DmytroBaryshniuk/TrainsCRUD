@@ -24,7 +24,7 @@ public class TrainController {
         return trainService.getTrains();
     }
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public void createNewTrain(@RequestBody Train train){
         trainService.createNewTrain(train);
     }

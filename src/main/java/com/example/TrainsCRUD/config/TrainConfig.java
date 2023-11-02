@@ -15,13 +15,13 @@ public class TrainConfig {
     CommandLineRunner commandLineRunner(TrainRepository trainRepository){
         return args -> {
             Train intercity = new Train(
-                    null,
+                    199L,
                     "Intercity",
                     null,
                     null
             );
             Train polregio = new Train(
-                    null,
+                    200L,
                     "Polregio",
                     null,
                     null
