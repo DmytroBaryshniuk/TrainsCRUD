@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/trains")
+@RequestMapping(path = "api/trains{t_id}")
 public class TrainController {
 
     private final TrainService trainService;

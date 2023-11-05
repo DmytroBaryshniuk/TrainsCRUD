@@ -24,7 +24,5 @@ public class Train {
     private String trainOperator;
     @OneToMany(mappedBy = "train", cascade = CascadeType.ALL)
     public List<Wagon> wagons;
-    @ElementCollection
-    public Map<String, String> route;
 
 }
