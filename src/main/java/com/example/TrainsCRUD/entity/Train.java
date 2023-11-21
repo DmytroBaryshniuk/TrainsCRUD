@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,6 @@ public class Train {
     private Long trainId;
     private String trainOperator;
     @OneToMany(mappedBy = "train", cascade = CascadeType.ALL)
-    public List<Wagon> wagons;
+    public List<Wagon> wagons = new ArrayList<Wagon>();
 
 }

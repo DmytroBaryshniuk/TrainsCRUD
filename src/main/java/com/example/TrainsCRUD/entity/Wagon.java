@@ -1,11 +1,10 @@
 package com.example.TrainsCRUD.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Getter
+@Setter
 @Entity
 @Table
 @Data
@@ -21,6 +20,6 @@ public class Wagon {
     public char type;
     public int seatsAmount;
     @ManyToOne
-    @JoinColumn(name = "TRAIN_ID")
+    @JoinColumn(name = "trainId")
     private Train train;
 }

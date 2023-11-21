@@ -13,4 +13,5 @@ public interface TrainRepository extends JpaRepository<Train, Long> {
 
     Optional<Train> findByTrainId(Long id);
     Optional<Train> findByOperator(String trainOperator);
+
 }
