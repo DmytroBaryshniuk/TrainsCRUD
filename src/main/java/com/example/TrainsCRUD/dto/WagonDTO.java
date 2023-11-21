@@ -1,12 +1,12 @@
 package com.example.TrainsCRUD.dto;
 
-import com.example.TrainsCRUD.entity.Train;
-import com.example.TrainsCRUD.entity.Wagon;
-import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.List;
 import java.util.Objects;
 
+@Getter
+@Setter
 public class WagonDTO {
 
 
@@ -17,30 +17,6 @@ public class WagonDTO {
     public WagonDTO(int id, char type, int seatsAmount) {
         this.id = id;
         this.type = type;
-        this.seatsAmount = seatsAmount;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public char getType() {
-        return type;
-    }
-
-    public void setType(char type) {
-        this.type = type;
-    }
-
-    public int getSeatsAmount() {
-        return seatsAmount;
-    }
-
-    public void setSeatsAmount(int seatsAmount) {
         this.seatsAmount = seatsAmount;
     }
 
