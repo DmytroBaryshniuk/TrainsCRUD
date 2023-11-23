@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 @Service
-public class TrainService {
+public class TrainService implements TrainRepository{
 
     private final TrainRepository trainRepository;
 
@@ -34,5 +34,15 @@ public class TrainService {
         }
         trainRepository.save(train);
         System.out.println("New train saved to the DB!");
+    }
+
+    @Override
+    public Optional<Train> findByTrainId(Long id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<Train> findAll() {
+        return null;
     }
 }
