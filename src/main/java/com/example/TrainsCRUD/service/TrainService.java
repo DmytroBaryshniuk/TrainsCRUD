@@ -1,6 +1,7 @@
 package com.example.TrainsCRUD.service;
 
 import com.example.TrainsCRUD.entity.Train;
+import com.example.TrainsCRUD.entity.Wagon;
 import com.example.TrainsCRUD.repository.TrainRepository;
 import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.Optional;
 
 
 @Service
-public class TrainService implements TrainRepository{
+public class TrainService {
 
     private final TrainRepository trainRepository;
 
@@ -21,28 +22,30 @@ public class TrainService implements TrainRepository{
     public TrainService(TrainRepository trainRepository) {
         this.trainRepository = trainRepository;
     }
+    public void createNewTrain(Train train) {
+        if (trainRepository.findByTrainId(train.getTrainId()) != null){
+            throw new EntityExistsException("This train already exist!");
+        }
+        trainRepository.save(new Train(train.getTrainId(), train.getTrainOperator(), train.wagons));
+//        System.out.println("New train saved to the DB!");
+    }
 
-    public List<Train> getTrains(){
+    public Train findByTrainId(Integer id) {
+        return trainRepository.findByTrainId(id);
+    }
+
+    public List<Train> getAllTrains() {
         return trainRepository.findAll();
     }
 
-    public void createNewTrain(Train train) {
-        Optional<Train> trainById = trainRepository
-                .findByTrainId(train.getTrainId());
-        if (trainById.isPresent()){
-            throw new EntityExistsException("This train already exist!");
-        }
-        trainRepository.save(train);
-        System.out.println("New train saved to the DB!");
+    public List<Train> findByOperator(String trainOperator){
+        return trainRepository.findByTrainOperator(trainOperator);
     }
 
-    @Override
-    public Optional<Train> findByTrainId(Long id) {
-        return Optional.empty();
+    public void deleteTrain(Integer id){
+        trainRepository.delete(trainRepository.findByTrainId(id));
     }
-
-    @Override
-    public List<Train> findAll() {
-        return null;
+    public List<Wagon> getAllWagonsByTrainId(Integer id){
+        return trainRepository.getAllWagonsByTrainId(id);
     }
 }

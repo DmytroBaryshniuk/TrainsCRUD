@@ -21,7 +21,7 @@ public class Train {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long trainId;
+    private Integer trainId;
     private String trainOperator;
     @OneToMany(mappedBy = "train", cascade = CascadeType.ALL)
     public List<Wagon> wagons = new ArrayList<Wagon>();
